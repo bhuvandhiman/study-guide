@@ -1,0 +1,52 @@
+:root { --purple: #7856d6; --ink: #272332; --muted: #716b80; }
+.stApp { background: #fcfcfe; color: var(--ink); }
+/* A chat has no framework toolbar, deployment control, or sidebar. */
+[data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stSidebar"], #MainMenu, footer { display: none !important; }
+[data-testid="stMainBlockContainer"] { max-width: 850px; padding: 2rem 2rem 4rem; }
+.chat-brand { display: flex; align-items: center; gap: 9px; color: var(--ink); font: 600 15px system-ui, sans-serif; }
+.chat-brand span { color: var(--purple); font-size: 24px; }
+.welcome { text-align: center; padding: clamp(65px, 15vh, 160px) 0 45px; }
+.welcome p { color: var(--purple); font-size: 15px; margin: 0 0 9px; }
+.welcome h1 { font-size: clamp(25px, 4vw, 34px); font-weight: 500; line-height: 1.3; letter-spacing: -1px; color: var(--ink); padding: 0; margin: 0; }
+.orb { width: 80px; height: 80px; margin: 0 auto 27px; border-radius: 50%; background: radial-gradient(circle at 32% 27%, #fff 0, #f4eaff 15%, #d5b9f6 36%, #9b76df 59%, #dbb9ed 78%, #f7e3d7 100%); box-shadow: inset -5px -6px 12px #a57dd15e, inset 4px 5px 9px #ffffffba, 0 9px 27px #ad85dc26; }
+[data-testid="stChatMessage"] { background: transparent; border-radius: 14px; padding: 1rem; margin: .2rem 0; }
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) { background: #f2edf9; }
+[data-testid="stChatMessageAvatarAssistant"] { background: #eae2f7; color: var(--purple); }
+[data-testid="stChatMessageContent"] { font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; min-width: 0; }
+[data-testid="stBottom"] { background: #fcfcfe; }
+[data-testid="stBottomBlockContainer"] { max-width: 850px; padding: 1rem 2rem 1.5rem; }
+[data-testid="stChatInput"] { background: #f6f3fa; border: 1px solid #e7dff2; border-radius: 17px; box-shadow: 0 5px 25px #7856d607; }
+[data-testid="stChatInput"] textarea { color: var(--ink); font-size: 14px; }
+[data-testid="stChatInputSubmitButton"] { color: var(--purple); }
+[data-testid="stButton"] button { border-radius: 10px; border: 1px solid #e7dff2; color: #665180; background: white; font-size: 12px; white-space: nowrap; }
+[data-testid="stButton"] button:hover { color: var(--purple); border-color: var(--purple); }
+button:focus-visible, textarea:focus-visible, a:focus-visible { outline: 3px solid #ab91e8 !important; outline-offset: 3px; }
+@media (max-width: 600px) {
+  [data-testid="stMainBlockContainer"] { padding: 1.25rem 1rem 3rem; }
+  [data-testid="stBottomBlockContainer"] { padding: .75rem 1rem 1rem; }
+  .welcome { padding-top: 110px; }
+  .orb { width: 65px; height: 65px; }
+  [data-testid="stChatMessage"] { padding: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Recall: the same quiet chat, with an identity built around asking questions. */
+.chat-brand { gap: 11px; font-size: 18px; letter-spacing: -.4px; }
+.chat-brand .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: var(--purple); color: white; font: 600 26px Georgia, serif; }
+.chat-brand small { display: block; margin-top: 3px; font: 600 9px system-ui, sans-serif; letter-spacing: 1.6px; color: var(--muted); }
+.welcome { padding-top: clamp(45px, 11vh, 115px); }
+.welcome .eyebrow { margin: 0 0 16px; font-size: 10px; font-weight: 600; letter-spacing: 2px; }
+.welcome h1 { font-size: clamp(29px, 4vw, 42px); line-height: 1.25; font-weight: 550; letter-spacing: -1.6px; }
+.welcome .welcome-description { max-width: 390px; margin: 21px auto 0; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.welcome .welcome-note { margin: 22px auto 0; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.orb { display: grid; place-items: center; width: 86px; height: 86px; margin-bottom: 27px; }
+.orb span { color: #fff; font: 500 48px Georgia, serif; text-shadow: 0 2px 8px #7950a744; }
+[data-testid="stChatMessageAvatarUser"] { background: #eee9f5; color: #705091; }
+[data-testid="stChatMessageAvatarAssistant"] { background: #7856d6; color: white; }
+@media (max-width: 600px) {
+  .welcome { padding-top: 65px; }
+  .welcome h1 { font-size: 31px; }
+  .welcome .welcome-description { font-size: 13px; max-width: 290px; }
+  .orb { width: 70px; height: 70px; }
+  .orb span { font-size: 40px; }
+}
